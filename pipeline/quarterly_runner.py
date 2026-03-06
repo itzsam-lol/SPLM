@@ -50,9 +50,9 @@ def run_pipeline(mode='real', dry_run=False, start_year=2023, end_year=2023, tic
     all_occupancy_rows = []
 
     # Iterate through universe and time
-    tickers_to_process = INDIA_RETAIL_UNIVERSE.keys()
-    if ticker_filter:
-        tickers_to_process = [ticker_filter]
+    tickers_to_process = list(INDIA_RETAIL_UNIVERSE.keys())
+    if ticker_filter and ticker_filter.lower() != 'all':
+        tickers_to_process = [t.strip() for t in ticker_filter.split(',')]
 
     for ticker in tickers_to_process:
         log_step(f"Processing Universe Member: {ticker}")

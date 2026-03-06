@@ -1,0 +1,1 @@
+Backtest results based on preliminary subset are incomplete. A complete backtest requires the full 12-ticker 5-year panel.
