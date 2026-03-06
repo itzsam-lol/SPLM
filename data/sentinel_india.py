@@ -75,7 +75,7 @@ def get_quarterly_composite(polygon_geojson, year, quarter, symbol, dry_run=Fals
         collection = (ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
                       .filterBounds(geom)
                       .filterDate(start_date, end_date)
-                      .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 25)))
+                      .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 40)))
         
         count = collection.size().getInfo()
         if count == 0:
