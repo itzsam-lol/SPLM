@@ -29,3 +29,6 @@ models/*.onnx
 .vscode/
 .idea/
 *.swp
+
+# Antigravity Prompt
+SPLM_India_Antigravity_Prompt.html

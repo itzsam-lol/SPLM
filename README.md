@@ -1,91 +1,72 @@
-# Satellite Parking Lot Momentum (SPLM) 
+# SPLM India: Satellite Parking Lot Momentum for Emerging Markets
 
-[![Python](https://img.shields.io/badge/Python-3.12%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![Computer Vision](https://img.shields.io/badge/AI-YOLOv8-green?logo=ultralytics&logoColor=white)](https://github.com/ultralytics/ultralytics)
-[![Quant Finance](https://img.shields.io/badge/Quant-Backtesting-orange?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Python](https://img.shields.io/badge/Python-3.12-blue?style=flat-square&logo=python)
+![Earth Engine](https://img.shields.io/badge/Google_Earth_Engine-Active-4285F4?style=flat-square&logo=googleearth)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Research_Ready-brightgreen?style=flat-square)
 
 ## Overview
-**SPLM** is a quantitative research framework designed to generate stock market alpha using alternative data. The project builds an end-to-end pipeline that counts vehicles in satellite imagery of retail parking lots to predict "Physical Activity" (PAI). By comparing this real-world traffic data against institutional analyst sentiment (AMI), the system identifies **Alpha Divergences**—predicting stock price movements before they are reflected in analyst reports.
+**SPLM India** is a quantitative research framework designed to predict revenue surprises in Indian organized retail stocks using alternative data. By leveraging open-source 10-meter satellite imagery (Sentinel-2) and spectral classification techniques (NDBI), the pipeline measures physical activity (parking lot occupancy) at major flagship retail locations and translates these observations into a tradable alpha signal.
 
-This project demonstrates expertise in **Computer Vision**, **Modular Software Engineering**, and **Quantitative Portfolio Construction**.
+This repository adapts traditional high-resolution satellite momentum strategies (typically reliant on costly commercial imagery like Planet Labs or Maxar) into a fully accessible, free-to-operate model tailored for emerging markets. 
 
----
+## Key Features
+- **Spectral Computer Vision Pipeline**: Automatically processes 10m Sentinel-2 multi-spectral imagery to compute Normalized Difference Built-Up Index (NDBI) as a proxy for vehicle density.
+- **Automated Earth Engine Orchestration**: Natively interacts with Google Earth Engine (GEE) to fetch, process, and chip satellite composites precisely aligned with OpenStreetMap (OSM) retail polygons.
+- **Robust NSE Data Architecture**: Ingests actual revenue figures from the National Stock Exchange (NSE) APIs with fail-safes (yfinance integrations and structural quantitative proxy targets) to ensure resilient backtesting.
+- **End-to-End Automation**: The `quarterly_runner.py` orchestrates the complete physical-to-financial divergence workflow across an expandable universe of 12 top Indian retail equities (e.g., DMART, TRENT, JUBLFOOD).
 
-## Core Features
-- **Computer Vision Pipeline**: Automated car counting using **YOLOv8** on multi-spectral satellite imagery patches.
-- **Alternative Data Signal Construction**: Weather-normalized, Z-scored signal processing to build the **Physical Activity Index (PAI)**.
-- **Sentiment Divergence Engine**: Comparison of real-world foot traffic vs. **IBES Analyst Estimates** to find "leading" market indicators.
-- **Quant Backtest Engine**: Vectorized backtester with realistic transaction cost modeling (BPS-based) and turnover analysis.
-- **Risk Management**: Sector-neutral and dollar-neutral long/short portfolio optimization using `cvxpy`.
+## Pipeline Architecture
+1. **Universe & Location Registry**: Defines the sector-mapped universe of Indian retail stocks and utilizes OSM Overpass to map physical parking geometries.
+2. **Sentinel Downloader**: Uses GEE to fetch non-cloudy, quarterly harmonized composites of the target geolocations.
+3. **Occupancy Extractor**: Calculates average spectral "hardness" (occupancy proxy) within the bounded retail polygons.
+4. **Signal Constructors**: 
+   - *Physical Activity Index (PAI)*: Normalizes trailing multi-quarter occupancy data against seasonal offsets.
+   - *Analyst Momentum Index (AMI)*: Derives base analyst sentiment and target revenue trajectories.
+5. **Divergence Engine**: Aggregates the PAI and AMI to calculate the cross-sectional momentum differential, outputting normalized directional signals (-1 to +1).
 
----
+## Installation & Setup
 
-## Tech Stack & Architecture
+### Prerequisites
+- Python 3.12+
+- A Google Cloud Project with the **Earth Engine API** enabled.
 
-### Languages & Tools
-- **Language**: Python 3.12
-- **Data Engineering**: Pandas, NumPy, Scipy
-- **Computer Vision**: Ultralytics (YOLOv8)
-- **Finance Engine**: Statsmodels, CVXPY (Optimization), Matplotlib/Seaborn (Visualization)
-- **GIS**: OpenStreetMap Overpass API (Parking Lot Geometry Retrieval)
-
-### Project Structure
-```text
-satellite_parking_momentum/
-├── data/               # Raw and processed datasets
-├── notebooks/          # Research Flow (Signal Validation & Backtesting)
-├── pipeline/           # Orchestration scripts (Daily runner)
-├── backtest/           # Core backtesting and cost modeling logic
-├── signals/            # Alpha signal construction (PAI, AMI)
-├── cv_models/          # YOLOv8 inference and spectral filtering
-└── requirements.txt    # Project dependencies
-```
-
----
-
-## Installation & Setup (Hybrid MSYS2/Windows)
-
-This project is optimized for Windows power users using **MSYS2/MinGW**. It uses a hybrid environment approach to handle heavy scientific dependencies efficiently.
-
-### 1. Install Heavy Dependencies (MSYS2 Terminal)
-Run the following in your MSYS2 MinGW64 terminal to avoid SSL/Build issues:
+### Environment
+1. Clone the repository and initialize a virtual environment:
 ```bash
-pacman -S mingw-w64-x86_64-python-pandas mingw-w64-x86_64-python-numpy \
-          mingw-w64-x86_64-python-statsmodels mingw-w64-x86_64-python-scipy \
-          mingw-w64-x86_64-python-ipykernel
+git clone https://github.com/itzsam-lol/SPLM.git
+cd satellite_parking_momentum
+python -m venv venv
+venv\Scripts\activate  # Windows
 ```
 
-### 2. Configure Virtual Environment (PowerShell)
-```powershell
-python -m venv venv --system-site-packages
-.\venv\bin\Activate.ps1
-pip install -r requirements.txt --prefer-binary
+2. Install strictly versioned dependencies (critical for pipeline stability):
+```bash
+pip install -r requirements.txt
 ```
 
----
-
-## Running the Pipeline
-
-### Daily Signal Generation
-To run the automated research flow that processes imagery and generates trade targets:
-```powershell
-python pipeline/daily_runner.py
+3. Authenticate Earth Engine (Required on first run):
+```bash
+earthengine authenticate
 ```
 
-### Visualizing Results
-Explore the saved results in the **Jupyter Notebooks**:
-1.  **[Signal Alpha Analysis](notebooks/01_signal_validation.ipynb)**: Check Information Coefficient (IC) decay and signal predictive power.
-2.  **[Backtest Results](notebooks/02_backtest_analysis.ipynb)**: View the Equity Curve, Drawdowns, and Net Returns after transaction costs.
+## Usage
+To execute the fully automated pipeline for the entire tracking universe over a specific date range:
 
----
+```bash
+python pipeline/quarterly_runner.py --start-year 2022 --end-year 2023
+```
 
-## Key Learnings & Future Scope
-- **Alternative Data**: Faced and solved "look-ahead bias" and "point-in-time" data constraints in finance.
-- **Software Design**: Implemented a **Strict Modular Architecture** allowing easy swapping of CV models or data providers.
-- **Future Improvements**: 
-  - Integrating real-time Planet Labs API hooks.
-  - Upgrading to a distributed worker system (Celery/RabbitMQ) for large-scale GIS processing.
+The pipeline will log extraction rates and output the final signal vectors to:
+`data/processed/final_signals.csv`
 
----
+To test the computer vision layer specifically against a single ticker:
+```bash
+python models/occupancy_cv.py --ticker DMART --year 2023 --quarter 1
+```
 
+## Research Outputs
+The output dataset (`final_signals.csv`) is explicitly formatted to integrate with cross-sectional backtesting engines. For a detailed breakdown of the model's accuracy, constraints (such as Indian Monsoon occlusion windows), and initial predictive metrics, refer to the included **SPLM India Research Report**.
+
+## Ethics & Disclaimer
+This framework was engineered strictly for academic research and methodological demonstration. The synthetic fallback layers and proxy estimators are designed to test the architectural soundness of the divergence model when proprietary earnings or analyst data is unavailable. It does not constitute financial advice.

@@ -1,0 +1,8 @@
+[2026-03-06T22:45:12.518461] Step 1: Check if new quarterly earnings are available (NSE API)
+[2026-03-06T22:45:12.519463] Step 2: Trigger Sentinel-2 composite download for Q1 2022
+[2026-03-06T22:45:12.519463] Step 3: Run spectral occupancy extraction on new images
+[2026-03-06T22:45:12.519463] Step 4: Update PAI with new observations (exclude monsoon quarters)
+[2026-03-06T22:45:12.519463] Step 5: Update revenue_surprise signal with new actuals
+[2026-03-06T22:45:12.519975] Step 6: Compute delta divergence signal, re-rank cross-sectionally
+[2026-03-06T22:45:12.519975] Step 7: Generate portfolio diff (positions to add/remove)
+[2026-03-06T22:45:12.519975] Step 8: Log all updates to data/manifests/ with timestamps

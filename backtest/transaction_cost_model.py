@@ -1,63 +1,49 @@
 """
-Transaction Cost Model.
-Estimates the execution slippage and flat fees for portfolio turnover.
+Transaction Cost Model (Indian Market).
+Models NSE transaction costs including STT, SEBI, brokerage, etc.
+Currency: INR (crores).
 """
 import pandas as pd
 import numpy as np
-import logging
-
-logger = logging.getLogger(__name__)
 
 class TransactionCostModel:
-    def __init__(self, flat_bps: float = 5.0, adv_penalty_factor: float = 0.1):
-        """
-        flat_bps: Base cost for trading large cap liquid names (e.g. 5 bps = 0.05%)
-        adv_penalty_factor: Multiplier to penalize trades that consume high % of ADV.
-        """
-        self.flat_bps = flat_bps
-        self.adv_penalty_factor = adv_penalty_factor
+    def __init__(self, broker_type='discount'):
+        self.broker_type = broker_type
 
-    def estimate_costs(self, current_weights: pd.Series, target_weights: pd.Series, portfolio_aum: float, daily_adv_data: pd.DataFrame = None) -> float:
+    def estimate_cost_india(self, trade_value_inr: float, broker_type: str = None) -> float:
         """
-        Calculate the transaction cost in dollars for rebalancing from current to target weights.
+        trade_value_inr must be in \u20B9 crores or absolute \u20B9, return matches unit.
         """
-        # Align indices (tickers)
-        all_tickers = current_weights.index.union(target_weights.index)
+        b_type = broker_type or self.broker_type
+        brokerage = 0.0005 if b_type == 'discount' else 0.003
         
-        w_curr = current_weights.reindex(all_tickers).fillna(0)
-        w_targ = target_weights.reindex(all_tickers).fillna(0)
+        COST_COMPONENTS = {
+            'brokerage':   brokerage,
+            'stt':         0.001,   # STT delivery
+            'sebi_charge': 0.0001,  # SEBI charge
+            'stamp_duty':  0.00015, # Stamp duty
+            'gst_on_brok': 0.18 * brokerage,
+        }
         
-        # Turnover in weight percentages
-        turnover_weights = np.abs(w_targ - w_curr)
-        
-        # Base flat fee
-        base_cost_dollars = turnover_weights.sum() * portfolio_aum * (self.flat_bps / 10000.0)
-        
-        # Impact penalty
-        impact_cost_dollars = 0.0
-        if daily_adv_data is not None and not daily_adv_data.empty:
-            for ticker in turnover_weights.index[turnover_weights > 0]:
-                if ticker in daily_adv_data.index:
-                    trade_size_dollars = turnover_weights[ticker] * portfolio_aum
-                    adv_dollars = daily_adv_data.loc[ticker, 'adv_30d']
-                    
-                    if adv_dollars > 0:
-                        # Simple linear market impact model:
-                        # penalty = factor * (TradeSize / ADV)
-                        pct_of_adv = trade_size_dollars / adv_dollars
-                        impact_rate = self.adv_penalty_factor * pct_of_adv
-                        impact_cost_dollars += trade_size_dollars * impact_rate
-                        
-        total_costs = base_cost_dollars + impact_cost_dollars
-        
-        return total_costs
+        total_rate = sum(COST_COMPONENTS.values())
+        return total_rate * trade_value_inr
 
-    def apply_costs_to_returns(self, raw_returns: pd.Series, turnover: pd.Series, avg_bps: float = 7.5) -> pd.Series:
+    def calculate_turnover_costs(self, w_current: pd.Series, w_target: pd.Series, aum_inr_cr: float) -> float:
         """
-        Simpler macro-level application of costs to daily returns.
-        raw_returns: Daily portfolio returns
-        turnover: Daily portfolio turnover (sum of abs weight changes / 2)
+        Returns cost in INR crores based on portfolio turnover.
         """
-        cost_rate = avg_bps / 10000.0
-        net_returns = raw_returns - (turnover * cost_rate)
-        return net_returns
+        all_tickers = w_current.index.union(w_target.index)
+        w_c = w_current.reindex(all_tickers).fillna(0)
+        w_t = w_target.reindex(all_tickers).fillna(0)
+        
+        turnover_weights = np.abs(w_t - w_c)
+        total_trade_value_cr = turnover_weights.sum() * aum_inr_cr
+        
+        return self.estimate_cost_india(total_trade_value_cr, self.broker_type)
+
+    def apply_costs_to_returns(self, raw_returns: pd.Series, turnover: pd.Series, broker_type: str = 'discount') -> pd.Series:
+        """
+        Simplified application to daily/quarterly returns based on turnover series.
+        """
+        rate = self.estimate_cost_india(1.0, broker_type)
+        return raw_returns - (turnover * rate)

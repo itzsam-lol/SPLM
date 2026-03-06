@@ -1,60 +1,74 @@
 """
 Divergence Signal Constructor
-Combines PAI and AMI to calculate the primary Alpha factor.
+Combines PAI (leading physical signal) and AMI (target: revenue surprise) 
+to calculate the primary Alpha factor.
+Synthetic: False
 """
 import pandas as pd
 import logging
 
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))
+try:
+    from data.india_universe import INDIA_RETAIL_UNIVERSE
+except ImportError:
+    INDIA_RETAIL_UNIVERSE = {}
+
 logger = logging.getLogger(__name__)
 
 class DivergenceSignal:
-    def __init__(self, use_smoothing: bool = True):
-        """
-        Initialize setup.
-        """
-        self.use_smoothing = use_smoothing
+    def __init__(self, data_source='revenue_surprise'):
+        self.data_source = data_source
 
-    def generate_signal(self, pai_df: pd.DataFrame, ami_df: pd.DataFrame, industry_map: pd.DataFrame = None) -> pd.DataFrame:
+    def generate_signal(self, pai_df: pd.DataFrame, ami_df: pd.DataFrame) -> pd.DataFrame:
         """
-        Merge PAI and AMI dataframes and calculate the divergence factor.
-        
-        industry_map: DataFrame with [ticker, gics_sub_ind] to allow within-sector ranking.
+        Merge PAI and Target (revenue surprise usually) dataframes 
+        and calculate divergence factor.
         """
-        logger.info("Generating PAI-AMI Divergence Signal")
-        
-        # 1. Merge the two signals
-        merged = pd.merge(pai_df, ami_df, on=['ticker', 'date'], how='inner')
+        if pai_df.empty or ami_df.empty:
+            logger.warning("One of the input dataframes is empty. Cannot compute divergence.")
+            return pd.DataFrame()
+
+        merged = pd.merge(pai_df, ami_df, on=['ticker', 'year', 'quarter'], how='inner')
         
         if merged.empty:
-            logger.warning("Intersection of PAI and AMI arrays is empty.")
+            logger.warning("Intersection of PAI and Target arrays is empty.")
             return merged
             
-        # 2. Raw Divergence Calculation
-        # Positive value means physical activity (PAI) is stronger than 
-        # what analysts are modeling (AMI)
-        merged['delta_signal_raw'] = merged['pai_zscore'] - merged['ami_zscore']
-        
-        # 3. Add Industry Data (Mock mapping here if None)
-        if industry_map is None:
-            # Mock generic sector
-            merged['industry'] = [(hash(t) % 5) for t in merged['ticker']]
+        if self.data_source == 'revenue_surprise':
+            # Δ = PAI_zscore (leading, physical) - revenue_surprise_zscore (target reality)
+            # This measures how physical signals diverge from trailing reported reality
+            target_col = 'revenue_surprise_zscore'
         else:
-            merged = pd.merge(merged, industry_map, on='ticker', how='left')
+            target_col = 'ami_zscore'
+            
+        merged['delta_signal_raw'] = merged['pai_zscore'] - merged[target_col]
         
-        # 4. Cross-sectional ranking within industry
-        # Rank from 0 to 1, where 1 is the most long-biased
-        merged['industry_rank'] = merged.groupby(['date', 'industry'])['delta_signal_raw'].rank(pct=True)
+        def get_sector(t):
+            return INDIA_RETAIL_UNIVERSE.get(t, {}).get('sector', 'unknown')
         
-        # 5. Smoothing
-        # Apply 5-day Exponentially Weighted Moving Average (EWMA) with halflife=3
-        # to smooth out noise from day-to-day satellite fluctuations.
-        if self.use_smoothing:
-            merged = merged.sort_values(['ticker', 'date'])
-            merged['delta_signal_smooth'] = (
-                merged.groupby('ticker')['delta_signal_raw']
-                .transform(lambda x: x.ewm(halflife=3, min_periods=1).mean())
-            )
-        else:
-            merged['delta_signal_smooth'] = merged['delta_signal_raw']
+        merged['sector'] = merged['ticker'].apply(get_sector)
+        
+        # Cross-sectional ranking within sector
+        merged['sector_rank'] = merged.groupby(['year', 'quarter', 'sector'])['delta_signal_raw'].rank(pct=True)
+        
+        # Add forward_target for IC calculation
+        merged = merged.sort_values(['ticker', 'year', 'quarter'])
+        merged['forward_revenue_surprise'] = merged.groupby('ticker')[target_col].shift(-1)
+        
+        merged['delta_signal_smooth'] = merged['delta_signal_raw'] # No ewma since quarterly
             
         return merged
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--ticker', required=True)
+    args = parser.parse_args()
+    
+    # generate fake df and show
+    pai = pd.DataFrame([{'ticker': args.ticker, 'year': 2022, 'quarter': 1, 'pai_zscore': 1.5, 'sector': 'hypermarket'}])
+    ami = pd.DataFrame([{'ticker': args.ticker, 'year': 2022, 'quarter': 1, 'revenue_surprise_zscore': 0.5}])
+    d = DivergenceSignal()
+    print(d.generate_signal(pai, ami))
