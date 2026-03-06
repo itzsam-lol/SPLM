@@ -1,4 +1,14 @@
 Ticker | Quarters Processed | Real Images Used | Monsoon Excluded | Synthetic Flag
-     ticker  quarters_total  quarters_real  monsoon_excluded  pai_available  rev_available
-0  BARBEQUE              12             12                 3              9             10
-1     METRO              12             12                 3              9             10
+        ticker  quarters_total  quarters_real  monsoon_excluded  pai_available  rev_available
+0        ABFRL               9              9                 2              7              9
+1     BARBEQUE              12              0                 3              9             10
+2      DEVYANI               9              9                 2              7              9
+3        DMART               9              9                 2              7              9
+4     JUBLFOOD               9              9                 2              7              9
+5        METRO               9              9                 2              7              9
+6     SAPPHIRE               9              9                 2              7              9
+7   SHOPERSTOP               9              9                 2              7              9
+8     SPENCERS               9              9                 2              7              9
+9        TRENT               9              9                 2              7              9
+10       VMART              12              0                 3              9             10
+11    WESTLIFE               9              9                 2              7              9

@@ -54,8 +54,14 @@ def fix_signals():
             df = pd.merge(df, e_surp[['ticker', 'year', 'quarter', 'revenue_surprise_yoy']].drop_duplicates(), on=['ticker', 'year', 'quarter'], how='left')
             cols_to_keep.append('revenue_surprise_yoy')
 
-    # Force synthetic = False unequivocally since satellite imagery WAS real chips.
-    df['synthetic'] = False
+    # Map synthetic based on earnings proxy source, to honor the user constraint about IC validity
+    if 'source_y' in df.columns:
+        df['synthetic'] = df['source_y'] == 'quantitative_proxy_target'
+    elif 'source' in df.columns:
+        df['synthetic'] = df['source'] == 'quantitative_proxy_target'
+    else:
+        df['synthetic'] = False
+
     
     df = df[[c for c in cols_to_keep if c in df.columns]]
     df.to_csv('data/processed/final_signals.csv', index=False)

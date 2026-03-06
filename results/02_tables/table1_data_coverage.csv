@@ -1,3 +1,13 @@
 ticker,quarters_total,quarters_real,monsoon_excluded,pai_available,rev_available
-BARBEQUE,12,12,3,9,10
-METRO,12,12,3,9,10
+ABFRL,9,9,2,7,9
+BARBEQUE,12,0,3,9,10
+DEVYANI,9,9,2,7,9
+DMART,9,9,2,7,9
+JUBLFOOD,9,9,2,7,9
+METRO,9,9,2,7,9
+SAPPHIRE,9,9,2,7,9
+SHOPERSTOP,9,9,2,7,9
+SPENCERS,9,9,2,7,9
+TRENT,9,9,2,7,9
+VMART,12,0,3,9,10
+WESTLIFE,9,9,2,7,9

@@ -1,222 +1,864 @@
 {
   "data_coverage": [
     {
+      "ticker": "ABFRL",
+      "quarters_total": 9,
+      "quarters_real": 9,
+      "monsoon_excluded": 2,
+      "pai_available": 7,
+      "rev_available": 9
+    },
+    {
       "ticker": "BARBEQUE",
       "quarters_total": 12,
-      "quarters_real": 12,
+      "quarters_real": 0,
       "monsoon_excluded": 3,
       "pai_available": 9,
       "rev_available": 10
     },
     {
+      "ticker": "DEVYANI",
+      "quarters_total": 9,
+      "quarters_real": 9,
+      "monsoon_excluded": 2,
+      "pai_available": 7,
+      "rev_available": 9
+    },
+    {
+      "ticker": "DMART",
+      "quarters_total": 9,
+      "quarters_real": 9,
+      "monsoon_excluded": 2,
+      "pai_available": 7,
+      "rev_available": 9
+    },
+    {
+      "ticker": "JUBLFOOD",
+      "quarters_total": 9,
+      "quarters_real": 9,
+      "monsoon_excluded": 2,
+      "pai_available": 7,
+      "rev_available": 9
+    },
+    {
       "ticker": "METRO",
+      "quarters_total": 9,
+      "quarters_real": 9,
+      "monsoon_excluded": 2,
+      "pai_available": 7,
+      "rev_available": 9
+    },
+    {
+      "ticker": "SAPPHIRE",
+      "quarters_total": 9,
+      "quarters_real": 9,
+      "monsoon_excluded": 2,
+      "pai_available": 7,
+      "rev_available": 9
+    },
+    {
+      "ticker": "SHOPERSTOP",
+      "quarters_total": 9,
+      "quarters_real": 9,
+      "monsoon_excluded": 2,
+      "pai_available": 7,
+      "rev_available": 9
+    },
+    {
+      "ticker": "SPENCERS",
+      "quarters_total": 9,
+      "quarters_real": 9,
+      "monsoon_excluded": 2,
+      "pai_available": 7,
+      "rev_available": 9
+    },
+    {
+      "ticker": "TRENT",
+      "quarters_total": 9,
+      "quarters_real": 9,
+      "monsoon_excluded": 2,
+      "pai_available": 7,
+      "rev_available": 9
+    },
+    {
+      "ticker": "VMART",
       "quarters_total": 12,
-      "quarters_real": 12,
+      "quarters_real": 0,
       "monsoon_excluded": 3,
       "pai_available": 9,
       "rev_available": 10
+    },
+    {
+      "ticker": "WESTLIFE",
+      "quarters_total": 9,
+      "quarters_real": 9,
+      "monsoon_excluded": 2,
+      "pai_available": 7,
+      "rev_available": 9
     }
   ],
   "real_observations": [
     {
-      "ticker": "BARBEQUE",
-      "quarter_label": "Q1 2022",
-      "pai_zscore": -1.1418278494278629,
-      "revenue_surprise_yoy": NaN,
-      "delta_signal": -1.1418278494278629,
-      "monsoon_flag": false
-    },
-    {
-      "ticker": "BARBEQUE",
-      "quarter_label": "Q2 2022",
-      "pai_zscore": 1.2907336071817184,
-      "revenue_surprise_yoy": NaN,
-      "delta_signal": 1.2907336071817184,
-      "monsoon_flag": false
-    },
-    {
-      "ticker": "BARBEQUE",
-      "quarter_label": "Q3 2022",
-      "pai_zscore": NaN,
-      "revenue_surprise_yoy": -0.1060069003924953,
-      "delta_signal": NaN,
-      "monsoon_flag": true
-    },
-    {
-      "ticker": "BARBEQUE",
+      "ticker": "ABFRL",
       "quarter_label": "Q4 2022",
-      "pai_zscore": 0.2648930544811341,
-      "revenue_surprise_yoy": 0.2204263995891647,
-      "delta_signal": 0.9719998356676816,
+      "pai_zscore": 0.2418585846118222,
+      "revenue_surprise_yoy": -0.2938236529631055,
+      "delta_signal": -1.4017536503532186,
       "monsoon_flag": false
     },
     {
-      "ticker": "BARBEQUE",
+      "ticker": "ABFRL",
       "quarter_label": "Q1 2023",
-      "pai_zscore": -0.2218982657888346,
-      "revenue_surprise_yoy": 0.2335607684436855,
-      "delta_signal": -0.9290050469753822,
+      "pai_zscore": -1.1022130105859087,
+      "revenue_surprise_yoy": -0.7510588642060679,
+      "delta_signal": -1.620090877391254,
       "monsoon_flag": false
     },
     {
-      "ticker": "BARBEQUE",
+      "ticker": "ABFRL",
       "quarter_label": "Q2 2023",
-      "pai_zscore": 0.9919018624482882,
-      "revenue_surprise_yoy": -0.0349149332060034,
-      "delta_signal": 0.2847950812617422,
+      "pai_zscore": 1.235983791141393,
+      "revenue_surprise_yoy": 1.394007490636704,
+      "delta_signal": 0.7395234201919194,
       "monsoon_flag": false
     },
     {
-      "ticker": "BARBEQUE",
+      "ticker": "ABFRL",
       "quarter_label": "Q3 2023",
       "pai_zscore": NaN,
-      "revenue_surprise_yoy": -0.0104368746248809,
+      "revenue_surprise_yoy": 4.802158273381295,
       "delta_signal": NaN,
       "monsoon_flag": true
     },
     {
-      "ticker": "BARBEQUE",
+      "ticker": "ABFRL",
       "quarter_label": "Q4 2023",
-      "pai_zscore": -0.2795975488843722,
-      "revenue_surprise_yoy": 0.2127174603431576,
-      "delta_signal": 0.4275092323021753,
+      "pai_zscore": 0.4907453906081903,
+      "revenue_surprise_yoy": 0.2019036631093164,
+      "delta_signal": -0.3556925021820199,
       "monsoon_flag": false
     },
     {
-      "ticker": "BARBEQUE",
+      "ticker": "ABFRL",
       "quarter_label": "Q1 2024",
-      "pai_zscore": -1.2609573956667848,
-      "revenue_surprise_yoy": 0.1473305796955064,
-      "delta_signal": -0.5538506144802371,
+      "pai_zscore": -1.4840165985970808,
+      "revenue_surprise_yoy": -0.8762473481574605,
+      "delta_signal": -0.7326479667384583,
       "monsoon_flag": false
     },
     {
-      "ticker": "BARBEQUE",
+      "ticker": "ABFRL",
       "quarter_label": "Q2 2024",
-      "pai_zscore": 0.3523902510953889,
-      "revenue_surprise_yoy": -0.0876631664410789,
-      "delta_signal": -0.354716530091157,
+      "pai_zscore": 0.6448821809823135,
+      "revenue_surprise_yoy": 0.3698854337152209,
+      "delta_signal": 0.6620660599886729,
       "monsoon_flag": false
     },
     {
-      "ticker": "BARBEQUE",
+      "ticker": "ABFRL",
       "quarter_label": "Q3 2024",
       "pai_zscore": NaN,
-      "revenue_surprise_yoy": -0.0092403715416213,
+      "revenue_surprise_yoy": -0.570906432748538,
       "delta_signal": NaN,
       "monsoon_flag": true
     },
     {
-      "ticker": "BARBEQUE",
+      "ticker": "ABFRL",
       "quarter_label": "Q4 2024",
-      "pai_zscore": -0.3481401371364851,
-      "revenue_surprise_yoy": 0.2848654397857156,
-      "delta_signal": -1.0552469183230326,
+      "pai_zscore": -0.4106513305929164,
+      "revenue_surprise_yoy": -0.689147815027608,
+      "delta_signal": 0.1823710256865796,
       "monsoon_flag": false
     },
     {
-      "ticker": "METRO",
-      "quarter_label": "Q1 2022",
-      "pai_zscore": -0.4677012040714313,
-      "revenue_surprise_yoy": NaN,
-      "delta_signal": -0.4677012040714313,
-      "monsoon_flag": false
-    },
-    {
-      "ticker": "METRO",
-      "quarter_label": "Q2 2022",
-      "pai_zscore": 0.2452216954376443,
-      "revenue_surprise_yoy": NaN,
-      "delta_signal": 0.2452216954376443,
-      "monsoon_flag": false
-    },
-    {
-      "ticker": "METRO",
-      "quarter_label": "Q3 2022",
-      "pai_zscore": NaN,
-      "revenue_surprise_yoy": -0.0044286852011756,
-      "delta_signal": NaN,
-      "monsoon_flag": true
-    },
-    {
-      "ticker": "METRO",
+      "ticker": "DEVYANI",
       "quarter_label": "Q4 2022",
-      "pai_zscore": -0.0520927225442271,
-      "revenue_surprise_yoy": 0.2376671045341764,
-      "delta_signal": -0.7591995037307747,
+      "pai_zscore": 0.3777508532593279,
+      "revenue_surprise_yoy": -0.7796043466146559,
+      "delta_signal": 0.9973858710980076,
       "monsoon_flag": false
     },
     {
-      "ticker": "METRO",
+      "ticker": "DEVYANI",
       "quarter_label": "Q1 2023",
-      "pai_zscore": -0.033749303443955,
-      "revenue_surprise_yoy": 0.188814238529344,
-      "delta_signal": 0.6733574777425925,
+      "pai_zscore": -0.558446862357281,
+      "revenue_surprise_yoy": 0.3878676470588235,
+      "delta_signal": 0.2921342067462545,
       "monsoon_flag": false
     },
     {
-      "ticker": "METRO",
+      "ticker": "DEVYANI",
       "quarter_label": "Q2 2023",
-      "pai_zscore": 0.7458575258666277,
-      "revenue_surprise_yoy": -0.0382158386236946,
-      "delta_signal": 1.4529643070531768,
+      "pai_zscore": 0.676741862023374,
+      "revenue_surprise_yoy": 0.2943549619487148,
+      "delta_signal": 1.0441504190698887,
       "monsoon_flag": false
     },
     {
-      "ticker": "METRO",
+      "ticker": "DEVYANI",
       "quarter_label": "Q3 2023",
       "pai_zscore": NaN,
-      "revenue_surprise_yoy": -0.042994803991523,
+      "revenue_surprise_yoy": 0.2744304742935392,
       "delta_signal": NaN,
       "monsoon_flag": true
     },
     {
-      "ticker": "METRO",
+      "ticker": "DEVYANI",
       "quarter_label": "Q4 2023",
-      "pai_zscore": -0.989821208594461,
-      "revenue_surprise_yoy": 0.2497761459444828,
-      "delta_signal": -1.6969279897810086,
+      "pai_zscore": 0.4586010961814785,
+      "revenue_surprise_yoy": 0.0293040293040293,
+      "delta_signal": 0.8448203990926804,
       "monsoon_flag": false
     },
     {
-      "ticker": "METRO",
+      "ticker": "DEVYANI",
       "quarter_label": "Q1 2024",
-      "pai_zscore": 0.948534492498282,
-      "revenue_surprise_yoy": 0.2695886188299468,
-      "delta_signal": 0.2414277113117346,
+      "pai_zscore": -1.289133743857,
+      "revenue_surprise_yoy": -0.6825348696179503,
+      "delta_signal": -0.6240843096264428,
       "monsoon_flag": false
     },
     {
-      "ticker": "METRO",
+      "ticker": "DEVYANI",
       "quarter_label": "Q2 2024",
-      "pai_zscore": -0.6839055005130154,
-      "revenue_surprise_yoy": -0.0945565603102161,
-      "delta_signal": 0.0232012806735338,
+      "pai_zscore": 0.8756215585859773,
+      "revenue_surprise_yoy": -0.8330605894282046,
+      "delta_signal": 1.1914327187470484,
       "monsoon_flag": false
     },
     {
-      "ticker": "METRO",
+      "ticker": "DEVYANI",
       "quarter_label": "Q3 2024",
       "pai_zscore": NaN,
-      "revenue_surprise_yoy": -0.0578108442441099,
+      "revenue_surprise_yoy": 0.0959641255605381,
       "delta_signal": NaN,
       "monsoon_flag": true
     },
     {
-      "ticker": "METRO",
+      "ticker": "DEVYANI",
       "quarter_label": "Q4 2024",
-      "pai_zscore": -0.0892857974570628,
-      "revenue_surprise_yoy": 0.2623049720450618,
-      "delta_signal": 0.6178209837294847,
+      "pai_zscore": -0.1183550252728632,
+      "revenue_surprise_yoy": 0.8599971251976425,
+      "delta_signal": 0.1319624625699706,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "DMART",
+      "quarter_label": "Q4 2022",
+      "pai_zscore": 0.1702519326153471,
+      "revenue_surprise_yoy": 13.625790139064476,
+      "delta_signal": -2.203413230452556,
       "monsoon_flag": false
     },
     {
       "ticker": "DMART",
       "quarter_label": "Q1 2023",
-      "pai_zscore": 1.2,
-      "revenue_surprise_yoy": 0.021,
-      "delta_signal": 0.54,
+      "pai_zscore": 0.0860286422069652,
+      "revenue_surprise_yoy": 0.6945683225352458,
+      "delta_signal": -1.6391840537339175,
       "monsoon_flag": false
+    },
+    {
+      "ticker": "DMART",
+      "quarter_label": "Q2 2023",
+      "pai_zscore": 0.0064123559523638,
+      "revenue_surprise_yoy": 10.93661971830986,
+      "delta_signal": -2.892904351872305,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "DMART",
+      "quarter_label": "Q3 2023",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": 2.9499374217772214,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "DMART",
+      "quarter_label": "Q4 2023",
+      "pai_zscore": -0.5509199308773356,
+      "revenue_surprise_yoy": 21.61057892544773,
+      "delta_signal": -3.1749909036389226,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "DMART",
+      "quarter_label": "Q1 2024",
+      "pai_zscore": -0.9430738414392552,
+      "revenue_surprise_yoy": 2.0542356611471084,
+      "delta_signal": -0.8013932532203887,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "DMART",
+      "quarter_label": "Q2 2024",
+      "pai_zscore": 0.3018337375118568,
+      "revenue_surprise_yoy": 1.0439389951133229,
+      "delta_signal": -1.492277988777447,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "DMART",
+      "quarter_label": "Q3 2024",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": 6.388235294117648,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "DMART",
+      "quarter_label": "Q4 2024",
+      "pai_zscore": -0.5626782507783356,
+      "revenue_surprise_yoy": 11.343894899536322,
+      "delta_signal": -2.995864125372524,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "JUBLFOOD",
+      "quarter_label": "Q4 2022",
+      "pai_zscore": -0.9636751938893554,
+      "revenue_surprise_yoy": -0.7362706811237989,
+      "delta_signal": -0.3636575023090511,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "JUBLFOOD",
+      "quarter_label": "Q1 2023",
+      "pai_zscore": 0.7033896935902103,
+      "revenue_surprise_yoy": -0.4485453755970473,
+      "delta_signal": 0.8695084184957004,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "JUBLFOOD",
+      "quarter_label": "Q2 2023",
+      "pai_zscore": -0.7316671787763884,
+      "revenue_surprise_yoy": -0.7729368048373257,
+      "delta_signal": -0.2133709264405241,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "JUBLFOOD",
+      "quarter_label": "Q3 2023",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": 1.226993964830088,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "JUBLFOOD",
+      "quarter_label": "Q4 2023",
+      "pai_zscore": -0.5798694763436225,
+      "revenue_surprise_yoy": 0.1130856219709208,
+      "delta_signal": -0.1524502681915495,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "JUBLFOOD",
+      "quarter_label": "Q1 2024",
+      "pai_zscore": 0.1359500929142422,
+      "revenue_surprise_yoy": -0.0006349206349206,
+      "delta_signal": -1.2931125682160487,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "JUBLFOOD",
+      "quarter_label": "Q2 2024",
+      "pai_zscore": -0.7856261200379502,
+      "revenue_surprise_yoy": 2.1363068486038324,
+      "delta_signal": -0.5034851970258203,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "JUBLFOOD",
+      "quarter_label": "Q3 2024",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.5297089247053164,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "JUBLFOOD",
+      "quarter_label": "Q4 2024",
+      "pai_zscore": 0.6883511423018832,
+      "revenue_surprise_yoy": -0.8510800332317917,
+      "delta_signal": 0.528645250315515,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q4 2022",
+      "pai_zscore": 0.0964581944138082,
+      "revenue_surprise_yoy": -0.8885647327071016,
+      "delta_signal": 0.3965401083530721,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q1 2023",
+      "pai_zscore": -0.9673472194305454,
+      "revenue_surprise_yoy": -0.1103115545015946,
+      "delta_signal": -0.1947887395069002,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q2 2023",
+      "pai_zscore": 0.6412548175025407,
+      "revenue_surprise_yoy": 0.0736648250460405,
+      "delta_signal": 1.2511163041094653,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q3 2023",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.9078287836233792,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q4 2023",
+      "pai_zscore": -0.5878495960352926,
+      "revenue_surprise_yoy": -0.8028518288902666,
+      "delta_signal": 0.0803943842107133,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q1 2024",
+      "pai_zscore": 1.2575118165534027,
+      "revenue_surprise_yoy": 0.0658135283363802,
+      "delta_signal": 1.87809997449,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q2 2024",
+      "pai_zscore": -0.7462935195928255,
+      "revenue_surprise_yoy": -0.9590589238751864,
+      "delta_signal": -0.0681496582322495,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q3 2024",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.9228914105761742,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q4 2024",
+      "pai_zscore": -0.31551925486362,
+      "revenue_surprise_yoy": 0.1375220465688257,
+      "delta_signal": 0.093069845391325,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SAPPHIRE",
+      "quarter_label": "Q4 2022",
+      "pai_zscore": 0.4419914611422454,
+      "revenue_surprise_yoy": -0.8867340591228107,
+      "delta_signal": 1.0871694948642745,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SAPPHIRE",
+      "quarter_label": "Q1 2023",
+      "pai_zscore": -0.4998251471178099,
+      "revenue_surprise_yoy": -0.5587322834645669,
+      "delta_signal": 0.076378623768684,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SAPPHIRE",
+      "quarter_label": "Q2 2023",
+      "pai_zscore": 0.6718838276602248,
+      "revenue_surprise_yoy": 0.1224356775300171,
+      "delta_signal": 1.2258482375517503,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SAPPHIRE",
+      "quarter_label": "Q3 2023",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.9490937896070976,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "SAPPHIRE",
+      "quarter_label": "Q4 2023",
+      "pai_zscore": 0.1415387135959404,
+      "revenue_surprise_yoy": -0.5138349159970782,
+      "delta_signal": 0.7157930705214941,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SAPPHIRE",
+      "quarter_label": "Q1 2024",
+      "pai_zscore": -1.2521833515512224,
+      "revenue_surprise_yoy": -0.5415820029027576,
+      "delta_signal": -0.8288356715354193,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SAPPHIRE",
+      "quarter_label": "Q2 2024",
+      "pai_zscore": 0.550347718135363,
+      "revenue_surprise_yoy": -0.8941309095401049,
+      "delta_signal": 0.9890793881808976,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SAPPHIRE",
+      "quarter_label": "Q3 2024",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": 0.1892307692307693,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "SAPPHIRE",
+      "quarter_label": "Q4 2024",
+      "pai_zscore": -0.5153433443852455,
+      "revenue_surprise_yoy": 0.1572844642966406,
+      "delta_signal": 0.0728751082492313,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SHOPERSTOP",
+      "quarter_label": "Q4 2022",
+      "pai_zscore": 0.6423577977208946,
+      "revenue_surprise_yoy": -0.1463963963963964,
+      "delta_signal": 1.2403205431317987,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SHOPERSTOP",
+      "quarter_label": "Q1 2023",
+      "pai_zscore": -0.7423017415189203,
+      "revenue_surprise_yoy": 0.6607653180437478,
+      "delta_signal": -0.2264785473455181,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SHOPERSTOP",
+      "quarter_label": "Q2 2023",
+      "pai_zscore": 1.125973229099174,
+      "revenue_surprise_yoy": -0.5446633073751718,
+      "delta_signal": 1.7210166362529278,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SHOPERSTOP",
+      "quarter_label": "Q3 2023",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.8286576818672164,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "SHOPERSTOP",
+      "quarter_label": "Q4 2023",
+      "pai_zscore": 0.207684567493345,
+      "revenue_surprise_yoy": 0.8600877456577921,
+      "delta_signal": 0.4601435353553375,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SHOPERSTOP",
+      "quarter_label": "Q1 2024",
+      "pai_zscore": -1.422545852727326,
+      "revenue_surprise_yoy": -0.8572413141633555,
+      "delta_signal": -0.6206867624952086,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SHOPERSTOP",
+      "quarter_label": "Q2 2024",
+      "pai_zscore": 0.7705812975431127,
+      "revenue_surprise_yoy": 0.0210124164278892,
+      "delta_signal": 1.4081147091404729,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SHOPERSTOP",
+      "quarter_label": "Q3 2024",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": 1.034671532846715,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "SHOPERSTOP",
+      "quarter_label": "Q4 2024",
+      "pai_zscore": -0.273635663804437,
+      "revenue_surprise_yoy": -0.9136668127465096,
+      "delta_signal": 0.3187628324461924,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SPENCERS",
+      "quarter_label": "Q4 2022",
+      "pai_zscore": 0.1814377120404741,
+      "revenue_surprise_yoy": 0.0667779632721202,
+      "delta_signal": 0.7538277630807917,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SPENCERS",
+      "quarter_label": "Q1 2023",
+      "pai_zscore": 0.0131812134119504,
+      "revenue_surprise_yoy": -0.4123376623376623,
+      "delta_signal": 0.6275403117820434,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SPENCERS",
+      "quarter_label": "Q2 2023",
+      "pai_zscore": 0.1982522302491695,
+      "revenue_surprise_yoy": -0.9461959599773456,
+      "delta_signal": 0.5472034625421629,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SPENCERS",
+      "quarter_label": "Q3 2023",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.4475457170356112,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "SPENCERS",
+      "quarter_label": "Q4 2023",
+      "pai_zscore": -0.1484433048219613,
+      "revenue_surprise_yoy": -0.7806841046277666,
+      "delta_signal": 0.4954973480990247,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SPENCERS",
+      "quarter_label": "Q1 2024",
+      "pai_zscore": -1.13808016462744,
+      "revenue_surprise_yoy": -0.0271750729174076,
+      "delta_signal": -0.7526627945710709,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SPENCERS",
+      "quarter_label": "Q2 2024",
+      "pai_zscore": 0.4919463923684938,
+      "revenue_surprise_yoy": -0.7165028453181583,
+      "delta_signal": 1.0473875986548733,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "SPENCERS",
+      "quarter_label": "Q3 2024",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.7058489494605338,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "SPENCERS",
+      "quarter_label": "Q4 2024",
+      "pai_zscore": -0.563060030060082,
+      "revenue_surprise_yoy": -0.765106769650159,
+      "delta_signal": -0.0201629702944943,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "TRENT",
+      "quarter_label": "Q4 2022",
+      "pai_zscore": -0.0385210764310964,
+      "revenue_surprise_yoy": 1.0255057167985928,
+      "delta_signal": -0.487630251581398,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "TRENT",
+      "quarter_label": "Q1 2023",
+      "pai_zscore": -1.2486031414418783,
+      "revenue_surprise_yoy": 1.8913907284768208,
+      "delta_signal": -1.573896346276646,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "TRENT",
+      "quarter_label": "Q2 2023",
+      "pai_zscore": 1.419513701788811,
+      "revenue_surprise_yoy": 3.610526315789474,
+      "delta_signal": 0.7709273741955716,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "TRENT",
+      "quarter_label": "Q3 2023",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": 4.195121951219512,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "TRENT",
+      "quarter_label": "Q4 2023",
+      "pai_zscore": 0.1909550359194299,
+      "revenue_surprise_yoy": 4.301223241590214,
+      "delta_signal": 0.6273634986641013,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "TRENT",
+      "quarter_label": "Q1 2024",
+      "pai_zscore": -1.253017780894332,
+      "revenue_surprise_yoy": 4.220832673737534,
+      "delta_signal": -0.6898988364662649,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "TRENT",
+      "quarter_label": "Q2 2024",
+      "pai_zscore": -0.229081331747053,
+      "revenue_surprise_yoy": 1.4516129032258065,
+      "delta_signal": 0.4318300106909685,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "TRENT",
+      "quarter_label": "Q3 2024",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": 4.787356081805399,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "TRENT",
+      "quarter_label": "Q4 2024",
+      "pai_zscore": -0.6528098825878836,
+      "revenue_surprise_yoy": 5.624466571834993,
+      "delta_signal": -0.4373829584200551,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "WESTLIFE",
+      "quarter_label": "Q4 2022",
+      "pai_zscore": -0.1519701000432103,
+      "revenue_surprise_yoy": -0.0431142410015648,
+      "delta_signal": 0.4810730204883112,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "WESTLIFE",
+      "quarter_label": "Q1 2023",
+      "pai_zscore": -0.9132527310103408,
+      "revenue_surprise_yoy": -0.9138614433111616,
+      "delta_signal": -0.0729318273222077,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "WESTLIFE",
+      "quarter_label": "Q2 2023",
+      "pai_zscore": -1.4871077862932691,
+      "revenue_surprise_yoy": -0.7661567732115677,
+      "delta_signal": -1.126488634440239,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "WESTLIFE",
+      "quarter_label": "Q3 2023",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.9018613599762916,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "WESTLIFE",
+      "quarter_label": "Q4 2023",
+      "pai_zscore": 0.058136693217873,
+      "revenue_surprise_yoy": -0.2879596678529063,
+      "delta_signal": 0.726691478041577,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "WESTLIFE",
+      "quarter_label": "Q1 2024",
+      "pai_zscore": -0.8401849364634835,
+      "revenue_surprise_yoy": -0.958570586501621,
+      "delta_signal": -0.7746079454704935,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "WESTLIFE",
+      "quarter_label": "Q2 2024",
+      "pai_zscore": 0.2877337374871925,
+      "revenue_surprise_yoy": -0.608430749682338,
+      "delta_signal": 1.0375972417581194,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "WESTLIFE",
+      "quarter_label": "Q3 2024",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": 0.193069498069498,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "WESTLIFE",
+      "quarter_label": "Q4 2024",
+      "pai_zscore": 0.0666787121781448,
+      "revenue_surprise_yoy": -0.6960855416085542,
+      "delta_signal": 0.6332749060442907,
+      "monsoon_flag": false
+    }
+  ],
+  "ic_analysis": [
+    {
+      "horizon": "Q+1",
+      "n_obs": 60,
+      "n_periods": 6,
+      "ic_mean": -0.3455,
+      "ic_std": 0.2334,
+      "t_stat": -3.626,
+      "icir": -1.48,
+      "hit_rate": 0.0
+    },
+    {
+      "horizon": "Q+2",
+      "n_obs": 60,
+      "n_periods": 6,
+      "ic_mean": -0.3717,
+      "ic_std": 0.1116,
+      "t_stat": -8.157,
+      "icir": -3.33,
+      "hit_rate": 0.0
+    },
+    {
+      "horizon": "Q+3",
+      "n_obs": 50,
+      "n_periods": 5,
+      "ic_mean": -0.2703,
+      "ic_std": 0.3332,
+      "t_stat": -1.814,
+      "icir": -0.811,
+      "hit_rate": 0.4
+    },
+    {
+      "horizon": "Q+4",
+      "n_obs": 40,
+      "n_periods": 4,
+      "ic_mean": -0.2606,
+      "ic_std": 0.2417,
+      "t_stat": -2.157,
+      "icir": -1.078,
+      "hit_rate": 0.25
     }
   ]
 }

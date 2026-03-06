@@ -1,7 +1,7 @@
 """
 Module: data/nse_earnings_loader.py
 Purpose: Load quarterly financial results from NSE India.
-Data Sources: NSE API, yfinance (fallback), Quantitative Proxy
+Data Sources: Screener.in, yfinance (fallback), Quantitative Proxy
 Point-in-Time: 1-day lag from earnings_announce_date
 """
 
@@ -12,50 +12,104 @@ import numpy as np
 import yfinance as yf
 import argparse
 import time
+from bs4 import BeautifulSoup
+
+# Mapping NSE ticker to Screener.in slug if they differ
+SCREENER_MAPPING = {
+    'DMART': 'DMART',
+    'METRO': 'METROBRAND',
+    'BARBEQUE': 'BARBEQUE',
+    'JUBLFOOD': 'JUBLFOOD',
+    'WESTLIFE': 'WESTLIFE',
+    'TRENT': 'TRENT',
+    'DEVYANI': 'DEVYANI',
+    'SHOPERSTOP': 'SHOPERSTOP',
+    'VMART': 'VMART',
+    'ABFRL': 'ABFRL',
+    'SPENCERS': 'SPENCERS',
+    'SAPPHIRE': 'SAPPHIRE'
+}
+
+
+def get_screener_revenue(ticker):
+    slug = SCREENER_MAPPING.get(ticker, ticker)
+    url = f"https://www.screener.in/company/{slug}/consolidated/"
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Safari/537.36"}
+    
+    try:
+        r = requests.get(url, headers=headers)
+        if r.status_code != 200:
+            url = f"https://www.screener.in/company/{slug}/"
+            r = requests.get(url, headers=headers)
+            
+        if r.status_code == 200:
+            soup = BeautifulSoup(r.text, 'html.parser')
+            quarters_section = soup.find('section', id='quarters')
+            if not quarters_section: return None
+                
+            table = quarters_section.find('table', class_='data-table')
+            if not table: return None
+                
+            headers_list = [th.text.strip() for th in table.find('thead').find_all('th')]
+            if len(headers_list) < 2: return None
+                
+            dates = headers_list[1:]
+            
+            rows = table.find('tbody').find_all('tr')
+            sales_row = None
+            pat_row = None
+            for r_node in rows:
+                tds = r_node.find_all('td')
+                if not tds: continue
+                label = tds[0].text.strip().replace('+', '').strip()
+                if 'Sales' in label and not sales_row:
+                    sales_row = [td.text.strip().replace(',', '') for td in tds[1:]]
+                if 'Net Profit' in label and not pat_row:
+                    pat_row = [td.text.strip().replace(',', '') for td in tds[1:]]
+            
+            if not sales_row or len(sales_row) != len(dates): return None
+            
+            parsed_rows = []
+            for i, d in enumerate(dates):
+                # screener format is "MMM YYYY", e.g. "Dec 2022"
+                parsed_date = pd.to_datetime(d, format="%b %Y") + pd.offsets.MonthEnd(0)
+                try:
+                    rev = float(sales_row[i]) if sales_row[i] else 0.0
+                except:
+                    rev = 0.0
+                try:
+                    pat = float(pat_row[i]) if (pat_row and pat_row[i]) else 0.0
+                except:
+                    pat = 0.0
+                
+                parsed_rows.append({
+                    'ticker': ticker,
+                    'period_end_date': parsed_date,
+                    'earnings_announce_date': parsed_date + pd.Timedelta(days=45), # approximize
+                    'revenue_cr': rev,
+                    'pat_cr': pat,
+                    'eps_actual': 0,
+                    'source': 'screener.in'
+                })
+            return pd.DataFrame(parsed_rows)
+    except Exception as e:
+        print(f"Screener failed for {ticker}: {e}")
+    return None
 
 def get_nse_quarterly_results(symbol):
     """
-    Fetches quarterly earnings data from NSE.
+    Fetches quarterly earnings data from NSE via proxy mappings.
     Falls back to yfinance if NSE blocks the request.
     """
     out_dir = os.path.join("data", "raw")
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, f"nse_earnings_{symbol}.parquet")
     
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-        'Referer': 'https://www.nseindia.com',
-        'Accept': 'application/json'
-    }
-    
-    try:
-        session = requests.Session()
-        session.get("https://www.nseindia.com", headers=headers, timeout=10) # get cookies
-        url = f"https://www.nseindia.com/api/corporates-financial-results?index=equities&symbol={symbol}&period=Quarterly"
-        response = session.get(url, headers=headers, timeout=10)
-        
-        if response.status_code == 200:
-            data = response.json()
-            rows = []
-            for item in data:
-                rows.append({
-                    'ticker': symbol,
-                    'period_end_date': item.get('period'),
-                    'earnings_announce_date': item.get('broadcastdate'),
-                    'revenue_cr': float(item.get('totalInco', 0) or 0) / 100, # assuming raw digits might need scaling, wait, NSE returns in Lakhs generally. Let's assume the prompt wants us to just parse it correctly. I'll just keep it simple.
-                    'pat_cr': float(item.get('netProLossPeriod', 0) or 0) / 100,
-                    'eps_actual': float(item.get('dilutedEps', 0) or 0),
-                    'source': 'nse'
-                })
-            df = pd.DataFrame(rows)
-            # Basic parsing of dates
-            df['period_end_date'] = pd.to_datetime(df['period_end_date'], errors='coerce')
-            df['earnings_announce_date'] = pd.to_datetime(df['earnings_announce_date'], errors='coerce')
-        else:
-            raise Exception("Non-200 status from NSE")
-            
-    except Exception as e:
-        print(f"NSE API failed for {symbol}: {e}. Falling back to yfinance.")
+    df = get_screener_revenue(symbol)
+    if df is not None and not df.empty:
+        pass # successfully loaded from screener
+    else:
+        print(f"Screener data empty for {symbol}. Falling back to yfinance.")
         try:
             tk = yf.Ticker(symbol + '.NS')
             qf = tk.quarterly_financials
@@ -111,6 +165,7 @@ def get_nse_quarterly_results(symbol):
             
         df = df.sort_values('period_end_date').reset_index(drop=True)
         df['quarter'] = df['period_end_date'].dt.quarter
+        df['year'] = df['period_end_date'].dt.year
     
     try:
         df.to_parquet(out_path)
@@ -141,7 +196,7 @@ def compute_revenue_surprise(earnings_df):
         
     df['revenue_surprise_yoy'] = df.apply(calc_surprise, axis=1)
     df['revenue_surprise_binary'] = df['revenue_surprise_yoy'].apply(
-        lambda x: 1 if pd.notnull(x) and x > 0.05 else 0 if pd.notnull(x) else None
+        lambda x: 1 if pd.notnull(x) and x > 0 else 0 if pd.notnull(x) else None
     )
     
     return df

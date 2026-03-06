@@ -1,1 +1,1 @@
-Not enough data
+PAI-only IC: mean=-0.0707, t-stat=-0.580
