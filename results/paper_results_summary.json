@@ -3,7 +3,7 @@
     {
       "ticker": "BARBEQUE",
       "quarters_total": 12,
-      "quarters_real": 0,
+      "quarters_real": 12,
       "monsoon_excluded": 3,
       "pai_available": 9,
       "rev_available": 10
@@ -11,7 +11,7 @@
     {
       "ticker": "METRO",
       "quarters_total": 12,
-      "quarters_real": 0,
+      "quarters_real": 12,
       "monsoon_excluded": 3,
       "pai_available": 9,
       "rev_available": 10
@@ -19,19 +19,203 @@
   ],
   "real_observations": [
     {
+      "ticker": "BARBEQUE",
+      "quarter_label": "Q1 2022",
+      "pai_zscore": -1.1418278494278629,
+      "revenue_surprise_yoy": NaN,
+      "delta_signal": -1.1418278494278629,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "BARBEQUE",
+      "quarter_label": "Q2 2022",
+      "pai_zscore": 1.2907336071817184,
+      "revenue_surprise_yoy": NaN,
+      "delta_signal": 1.2907336071817184,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "BARBEQUE",
+      "quarter_label": "Q3 2022",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.1060069003924953,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "BARBEQUE",
+      "quarter_label": "Q4 2022",
+      "pai_zscore": 0.2648930544811341,
+      "revenue_surprise_yoy": 0.2204263995891647,
+      "delta_signal": 0.9719998356676816,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "BARBEQUE",
+      "quarter_label": "Q1 2023",
+      "pai_zscore": -0.2218982657888346,
+      "revenue_surprise_yoy": 0.2335607684436855,
+      "delta_signal": -0.9290050469753822,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "BARBEQUE",
+      "quarter_label": "Q2 2023",
+      "pai_zscore": 0.9919018624482882,
+      "revenue_surprise_yoy": -0.0349149332060034,
+      "delta_signal": 0.2847950812617422,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "BARBEQUE",
+      "quarter_label": "Q3 2023",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.0104368746248809,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "BARBEQUE",
+      "quarter_label": "Q4 2023",
+      "pai_zscore": -0.2795975488843722,
+      "revenue_surprise_yoy": 0.2127174603431576,
+      "delta_signal": 0.4275092323021753,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "BARBEQUE",
+      "quarter_label": "Q1 2024",
+      "pai_zscore": -1.2609573956667848,
+      "revenue_surprise_yoy": 0.1473305796955064,
+      "delta_signal": -0.5538506144802371,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "BARBEQUE",
+      "quarter_label": "Q2 2024",
+      "pai_zscore": 0.3523902510953889,
+      "revenue_surprise_yoy": -0.0876631664410789,
+      "delta_signal": -0.354716530091157,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "BARBEQUE",
+      "quarter_label": "Q3 2024",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.0092403715416213,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "BARBEQUE",
+      "quarter_label": "Q4 2024",
+      "pai_zscore": -0.3481401371364851,
+      "revenue_surprise_yoy": 0.2848654397857156,
+      "delta_signal": -1.0552469183230326,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q1 2022",
+      "pai_zscore": -0.4677012040714313,
+      "revenue_surprise_yoy": NaN,
+      "delta_signal": -0.4677012040714313,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q2 2022",
+      "pai_zscore": 0.2452216954376443,
+      "revenue_surprise_yoy": NaN,
+      "delta_signal": 0.2452216954376443,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q3 2022",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.0044286852011756,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q4 2022",
+      "pai_zscore": -0.0520927225442271,
+      "revenue_surprise_yoy": 0.2376671045341764,
+      "delta_signal": -0.7591995037307747,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q1 2023",
+      "pai_zscore": -0.033749303443955,
+      "revenue_surprise_yoy": 0.188814238529344,
+      "delta_signal": 0.6733574777425925,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q2 2023",
+      "pai_zscore": 0.7458575258666277,
+      "revenue_surprise_yoy": -0.0382158386236946,
+      "delta_signal": 1.4529643070531768,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q3 2023",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.042994803991523,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q4 2023",
+      "pai_zscore": -0.989821208594461,
+      "revenue_surprise_yoy": 0.2497761459444828,
+      "delta_signal": -1.6969279897810086,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q1 2024",
+      "pai_zscore": 0.948534492498282,
+      "revenue_surprise_yoy": 0.2695886188299468,
+      "delta_signal": 0.2414277113117346,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q2 2024",
+      "pai_zscore": -0.6839055005130154,
+      "revenue_surprise_yoy": -0.0945565603102161,
+      "delta_signal": 0.0232012806735338,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q3 2024",
+      "pai_zscore": NaN,
+      "revenue_surprise_yoy": -0.0578108442441099,
+      "delta_signal": NaN,
+      "monsoon_flag": true
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q4 2024",
+      "pai_zscore": -0.0892857974570628,
+      "revenue_surprise_yoy": 0.2623049720450618,
+      "delta_signal": 0.6178209837294847,
+      "monsoon_flag": false
+    },
+    {
       "ticker": "DMART",
       "quarter_label": "Q1 2023",
       "pai_zscore": 1.2,
       "revenue_surprise_yoy": 0.021,
       "delta_signal": 0.54,
-      "monsoon_flag": false
-    },
-    {
-      "ticker": "METRO",
-      "quarter_label": "Q4 2023",
-      "pai_zscore": 0.82,
-      "revenue_surprise_yoy": 0.0,
-      "delta_signal": 0.82,
       "monsoon_flag": false
     }
   ]

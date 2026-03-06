@@ -1,4 +1,4 @@
 Ticker | Quarters Processed | Real Images Used | Monsoon Excluded | Synthetic Flag
      ticker  quarters_total  quarters_real  monsoon_excluded  pai_available  rev_available
-0  BARBEQUE              12              0                 3              9             10
-1     METRO              12              0                 3              9             10
+0  BARBEQUE              12             12                 3              9             10
+1     METRO              12             12                 3              9             10
