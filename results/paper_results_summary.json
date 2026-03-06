@@ -1,12 +1,20 @@
 {
   "data_coverage": [
     {
-      "ticker": "METRO",
-      "quarters_total": 11,
+      "ticker": "BARBEQUE",
+      "quarters_total": 12,
       "quarters_real": 0,
-      "monsoon_excluded": 2,
+      "monsoon_excluded": 3,
       "pai_available": 9,
-      "rev_available": 9
+      "rev_available": 10
+    },
+    {
+      "ticker": "METRO",
+      "quarters_total": 12,
+      "quarters_real": 0,
+      "monsoon_excluded": 3,
+      "pai_available": 9,
+      "rev_available": 10
     }
   ],
   "real_observations": [
