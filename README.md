@@ -66,7 +66,19 @@ python models/occupancy_cv.py --ticker DMART --year 2023 --quarter 1
 ```
 
 ## Research Outputs
-The output dataset (`final_signals.csv`) is explicitly formatted to integrate with cross-sectional backtesting engines. For a detailed breakdown of the model's accuracy, constraints (such as Indian Monsoon occlusion windows), and initial predictive metrics, refer to the included **SPLM India Research Report**.
+The pipeline generates a comprehensive set of research artifacts in the `results/` directory, structured for direct integration into academic publications (e.g., ICAIF):
+
+- **`results/00_validation/`**: Contains PIT (Point-in-Time) validation logs and test suite outputs ensuring zero lookahead bias.
+- **`results/02_tables/`**: High-fidelity CSV tables for Data Coverage, Case Study Observations, and IC Analysis.
+- **`results/03_figures/`**: Publication-ready visualizations including Pipeline Architecture, PAI Time Series, and IC Decay curves.
+- **`paper_results_summary.json`**: A consolidated JSON artifact containing all key performance metrics and coefficients.
+
+To regenerate the full suite of research results, execute:
+```bash
+python generate_results.py
+```
+
+For a detailed breakdown of the model's accuracy, constraints (such as Indian Monsoon occlusion windows), and initial predictive metrics, refer to the included **SPLM India Research Report (PDF)**.
 
 ## Ethics & Disclaimer
 This framework was engineered strictly for academic research and methodological demonstration. The synthetic fallback layers and proxy estimators are designed to test the architectural soundness of the divergence model when proprietary earnings or analyst data is unavailable. It does not constitute financial advice.
