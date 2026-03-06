@@ -1,0 +1,31 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# SSL Certificates & Credentials
+cacert.pem
+*.pem
+*.key
+.env
+
+# Data & Models (if large or downloaded)
+data/*.csv
+data/*.json
+!data/registry.json
+models/*.pt
+models/*.onnx
+
+# IDEs
+.vscode/
+.idea/
+*.swp
