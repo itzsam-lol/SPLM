@@ -1,0 +1,30 @@
+{
+  "data_coverage": [
+    {
+      "ticker": "METRO",
+      "quarters_total": 11,
+      "quarters_real": 0,
+      "monsoon_excluded": 2,
+      "pai_available": 9,
+      "rev_available": 9
+    }
+  ],
+  "real_observations": [
+    {
+      "ticker": "DMART",
+      "quarter_label": "Q1 2023",
+      "pai_zscore": 1.2,
+      "revenue_surprise_yoy": 0.021,
+      "delta_signal": 0.54,
+      "monsoon_flag": false
+    },
+    {
+      "ticker": "METRO",
+      "quarter_label": "Q4 2023",
+      "pai_zscore": 0.82,
+      "revenue_surprise_yoy": 0.0,
+      "delta_signal": 0.82,
+      "monsoon_flag": false
+    }
+  ]
+}
