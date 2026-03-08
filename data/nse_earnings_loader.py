@@ -183,10 +183,10 @@ def compute_revenue_surprise(earnings_df):
         return earnings_df
         
     df = earnings_df.copy()
-    df = df.sort_values('period_end_date')
+    df = df.sort_values(['ticker', 'period_end_date'])
     
     # Q_{t-4} is 4 periods ago
-    df['revenue_cr_t4'] = df['revenue_cr'].shift(4)
+    df['revenue_cr_t4'] = df.groupby('ticker')['revenue_cr'].shift(4)
     
     def calc_surprise(row):
         denom = abs(row['revenue_cr_t4'])
