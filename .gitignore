@@ -32,3 +32,6 @@ models/*.onnx
 
 # Antigravity Prompt
 SPLM_India_Antigravity_Prompt.html
+
+# Raw Satellite Imagery
+data/raw/imagery/**/*.tif
