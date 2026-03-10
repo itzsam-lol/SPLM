@@ -1,2 +1,2 @@
-excl_monsoon: IC=-0.3455, t=-3.626, N=60
-incl_monsoon: IC=-0.3455, t=-3.626, N=60
+excl_monsoon: IC=-0.6808, t=-5.678, N=30
+incl_monsoon: IC=-0.6808, t=-5.678, N=30

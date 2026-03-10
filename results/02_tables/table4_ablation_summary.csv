@@ -1,2 +1,5 @@
-ablation,ic_mean
-A_PAI_only,-0.0707070707070707
+id,description,ic_q1,t_q1,ic_q2,delta_vs_baseline
+A1,PAI-only sort (no RevSurprise normalization),-0.1556,-1.043,-0.3121,0.4606
+A2,Monsoon Q3 included (monsoon_flag=False override),-0.6162,-4.431,-0.6646,0.0
+A3,No weather deseasonalization (raw occupancy z-score),,,,
+A4,No festive calendar controls (within-quarter z-score only),-0.1758,-1.301,-0.1818,0.4404

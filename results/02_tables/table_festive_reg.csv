@@ -1,0 +1,6 @@
+covariate,coefficient,std_error,t_stat,p_value
+Intercept,-1.71694,0.42787,-4.013,0.0002
+precip,-0.0947,0.09821,-0.964,0.3385
+dtemp,0.01666,0.04506,0.37,0.7129
+is_diwali,-1.68516,0.48764,-3.456,0.001
+is_navratri,-2.44057,0.53879,-4.53,0.0

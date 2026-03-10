@@ -131,8 +131,15 @@ def get_nse_quarterly_results(symbol):
             df = pd.DataFrame(columns=['ticker', 'period_end_date', 'earnings_announce_date', 'revenue_cr', 'pat_cr', 'eps_actual', 'source'])
 
     if df.empty:
+        # T3 (V-05) SCRAPING FAILURE DOCUMENTATION:
+        # BARBEQUE: Not indexed on screener.in under any slug variant (BARBEQUE, BARBEQUE-NATION,
+        #   BBQ-NATION). NSE API blocks headless requests. yfinance returns empty quarterly financials.
+        #   Resolution: remains synthetic=True. Excluded from IC/ablation/backtest. Documented in Appendix A.
+        # VMART: screener.in page loads (slug VMART) but quarterly P&L numbers are JavaScript-rendered
+        #   via AJAX and return empty cells in static HTML. screener.in REST API /api/company/313489/quarters/
+        #   returns 404. No free workaround available without browser automation.
+        #   Resolution: remains synthetic=True. Excluded from IC/ablation/backtest. Documented in Appendix A.
         print(f"Fetching advanced quantitative proxy targets for {symbol}...")
-        # Baseline reference revenue (Cr)
         base_rev = 5000
         if symbol == 'DMART': base_rev = 12000
         elif symbol == 'TRENT': base_rev = 2300

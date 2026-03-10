@@ -1,0 +1,11 @@
+metric,value,notes
+annualized_return,-0.7848,"long-short, 30bps TC"
+annualized_volatility,0.3361,
+sharpe_ratio,-2.529,vs 6.5% RFR
+max_drawdown,-0.4967,
+calmar_ratio,1.58,
+hit_rate_quarterly,0.0,% quarters positive
+avg_turnover_pct,0.66,% portfolio replaced per quarter
+benchmark_correlation,,Nifty proxy ^NSEI — pending yfinance data
+information_ratio,-2.529,proxy (alpha/TE ≈ Sharpe for L/S)
+n_quarters,3.0,actual trading periods
