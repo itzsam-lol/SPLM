@@ -94,7 +94,12 @@ class OccupancyCVModel:
                     nir = out_image[0].astype(float)
                     swir = out_image[0].astype(float)
 
-                ndbi = (swir - nir) / (swir + nir + 1e-6)
+                # V-01 FIX: Negate NDBI to correct directional inversion.
+                # Physical property: vehicle bodies (metal, glass) suppress SWIR reflectance
+                # relative to bare asphalt, causing raw NDBI = (SWIR-NIR)/(SWIR+NIR) to DECREASE
+                # with vehicle presence. We therefore use -NDBI = (NIR-SWIR)/(SWIR+NIR) so that
+                # higher occupancy (more vehicles) → higher occupancy_proxy value.
+                ndbi = (nir - swir) / (swir + nir + 1e-6)
                 
                 valid_mask = (nir > 0)
                 if not np.any(valid_mask):
