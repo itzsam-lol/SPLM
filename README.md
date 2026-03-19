@@ -80,5 +80,8 @@ python generate_results.py
 
 For a detailed breakdown of the model's accuracy, constraints (such as Indian Monsoon occlusion windows), and initial predictive metrics, refer to the included **SPLM India Research Report (PDF)**.
 
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
 ## Ethics & Disclaimer
 This framework was engineered strictly for academic research and methodological demonstration. The synthetic fallback layers and proxy estimators are designed to test the architectural soundness of the divergence model when proprietary earnings or analyst data is unavailable. It does not constitute financial advice.
